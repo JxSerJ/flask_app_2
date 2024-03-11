@@ -4,6 +4,10 @@
     {{ title }}
 {% endblock %}
 
+{% block task %}
+{{ task }}
+{% endblock %}
+
 {% block content %}
     <form action="/flash" method="post">
         {% with messages = get_flashed_messages(with_categories=true) %}
