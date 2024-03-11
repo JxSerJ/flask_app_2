@@ -18,7 +18,24 @@ def index():
 # task 7
 @app.get('/power')
 def power():
-    pass
+    context = {
+        "title": "Task 7 - Power",
+        "task": '''Создать страницу, на которой будет форма для ввода числа
+и кнопка "Отправить". При нажатии на кнопку будет произведено
+перенаправление на страницу с результатом, где будет
+выведено введенное число и его квадрат.'''
+    }
+    return render_template('power_t07.html', **context)
+
+@app.post('/power')
+def power_post():
+    number = request.form['number']
+    try:
+        number = int(number)
+    except ValueError as e:
+        return f'Your input can not be transform to integer number: {number}.<br>Error: {e}', 400
+    return f'Your number was {number}.<br>Square of this number: {number ** 2}', 200
+
 
 
 @app.get('/flash')

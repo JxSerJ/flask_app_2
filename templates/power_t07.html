@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block task %}
+{{ task }}
+{% endblock %}
+
+{% block content %}
+<form action="/power" method="post">
+    <input type="text" name="number" placeholder="number">
+    <input type="submit" value="Send">
+</form>
+{% endblock %}
